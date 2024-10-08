@@ -1,0 +1,31 @@
+//Where: Filters elements based on a condition.
+var evenNumbersMethod = numbers.Where(num => num % 2 == 0);
+
+
+//Select: Projects each element into a new form.
+var names = people.Select(p => p.Name);
+
+
+//OrderBy / OrderByDescending: Sorts elements in ascending or descending order.
+var sortedByName = people.OrderBy(p => p.Name);
+
+//GroupBy
+var groupedByAge = people.GroupBy(p => p.Age);
+
+//Take / Skip: Limits the number of elements returned.
+var evenNumbersMethod = numbers.Where(num => num % 2 == 0).take(2);
+
+//Join: Joins two sequences based on matching keys.
+var peopleWithJobs = people.Join(jobs, p => p.JobId, j => j.Id, (p, j) => new { p.Name, j.Title });
+
+
+//First / FirstOrDefault: Returns the first element or a default value if none are found.
+var firstAdult = people.FirstOrDefault(p => p.Age >= 18);
+
+
+//Any / All: Checks if any or all elements satisfy a condition.
+bool hasMinors = people.Any(p => p.Age < 18);
+
+
+//Sum / Count / Max / Min / Average: Performs aggregation operations.
+var totalAge = people.Sum(p => p.Age);
